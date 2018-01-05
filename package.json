@@ -1,0 +1,10 @@
+{
+    "name": "simaa-server",
+    "version": "0.0.1",
+    "description": "Simaa Socket Server",
+    "dependencies": {
+        "express": "^4.15.2",
+        "request": "^2.83.0",
+        "socket.io": "^2.0.4"
+    }
+}
