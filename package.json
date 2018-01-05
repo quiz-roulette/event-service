@@ -2,6 +2,9 @@
     "name": "simaa-server",
     "version": "0.0.1",
     "description": "Simaa Socket Server",
+    "scripts": {
+        "start": "node index.js"
+      },
     "dependencies": {
         "express": "^4.15.2",
         "request": "^2.83.0",
