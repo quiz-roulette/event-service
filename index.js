@@ -1,13 +1,16 @@
-var app = require('express')();
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
-var request = require("request");
+const app = require('express')();
+const http = require('http');//.Server(app);
+const server = http.createServer(app);
+const io = require('socket.io')(server, {
+  transports: ['websocket', 'xhr-polling']
+});
+const request = require("request");
 
 app.get('/', function(req, res){
   res.send('<h1>Hello world</h1>');
 });
 
-http.listen(process.env.PORT  || 3000, function(){
+server.listen(process.env.PORT  || 3000, function(){
   console.log('listening on *:3000');
 });
 
@@ -16,9 +19,10 @@ function SocketUser(socketId,userId){
     this.UserId = userId;
   }
   
-  var socketUserIds = [];
+  const socketUserIds = [];
 
 io.on('connection', function(socket){
+  console.log(socket);
     // if(quizStart.started){
     //   socket.emit('start quiz',"code");
     // }
