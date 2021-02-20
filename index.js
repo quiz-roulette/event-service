@@ -12,7 +12,7 @@ app.get('/', function (req, res) {
   res.send('<h1>Hello world</h1>');
 });
 
-http.listen(process.env.PORT || 30100, function () {
+http.listen(30100, '0.0.0.0', function () {
   console.log('listening on *:30100 or ', process.env.PORT);
 });
 
@@ -24,7 +24,6 @@ function SocketUser(socketId, userId) {
 const socketUserIds = [];
 io.on('connection', function (socket) {
   console.log("in connection")
-  console.log(socket);
   // if(quizStart.started){
   //   socket.emit('start quiz',"code");
   // }
