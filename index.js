@@ -15,7 +15,7 @@ app.get('/', function (req, res) {
   res.send('<h1>Hello world</h1>');
 });
 
-server.listen(process.env.PORT || 30100, function () {
+server.listen(process.env.PORT || 80, function () {
   console.log('listening on *:3000');
 });
 
