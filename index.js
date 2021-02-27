@@ -1,4 +1,5 @@
 const app = require('express')();
+var cors = require('cors')
 const http = require('http');//.Server(app);
 const server = http.createServer(app);
 const io = require('socket.io')(server, {
@@ -9,7 +10,7 @@ const io = require('socket.io')(server, {
           credentials: true }
 });
 // const request = require("request");
-
+app.use(cors())
 app.get('/', function (req, res) {
   res.send('<h1>Hello world</h1>');
 });
