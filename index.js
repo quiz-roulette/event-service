@@ -1,6 +1,7 @@
 const app = require('express')();
 var cors = require('cors')
 const http = require('http');//.Server(app);
+app.use(cors())
 const server = http.createServer(app);
 const io = require('socket.io')(server, {
   cors: { 
@@ -10,12 +11,12 @@ const io = require('socket.io')(server, {
           credentials: true }
 });
 // const request = require("request");
-app.use(cors())
+
 app.get('/', function (req, res) {
   res.send('<h1>Hello world</h1>');
 });
 
-server.listen(process.env.PORT || 80, function () {
+server.listen(process.env.PORT || 30100, function () {
   console.log('listening on *:3000');
 });
 
